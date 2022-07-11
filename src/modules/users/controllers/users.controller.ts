@@ -22,8 +22,8 @@ export class UsersController {
     return this.usersService.getUser(userId);
   }
 
-  @Post('create')
-  async registerTradesperson(@Body() createUserRequestDto: CreateUserRequestDto, @Req() request) {
+  @Post()
+  async createUser(@Body() createUserRequestDto: CreateUserRequestDto, @Req() request) {
     return this.usersService.createUser(createUserRequestDto, request);
   }
 

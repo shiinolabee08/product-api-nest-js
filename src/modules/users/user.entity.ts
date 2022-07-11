@@ -1,8 +1,9 @@
 import { Column, Entity } from 'typeorm';
+import { BaseEntity } from '../../common/entities/base.entity';
 import { UserVerificationStatusEnum } from '../../common/enums/user-verification-status.enum';
 
 @Entity({ name: 'users' })
-export class User {
+export class User extends BaseEntity {
   @Column({
     type: 'varchar',
     length: 255,
