@@ -6,8 +6,8 @@ import * as tk from 'timekeeper';
 import * as path from 'path';
 import * as moment from 'moment';
 import * as CryptoJS from 'crypto-js';
-import nanoid from '../../helpers/nanoid.helper';
 import { FileInfo, FileUpload } from '../interfaces/file-upload.interface';
+import nanoid from '../../../helpers/nanoid.helper';
 
 @Injectable()
 export class AwsS3Service {

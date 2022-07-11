@@ -5,8 +5,8 @@ import { ConfigService } from '@nestjs/config';
 import { CognitoLoginRequestInterface } from '../interfaces/cognito-login-request.interface';
 import { CognitoVerifyLoginRequestInterface } from '../interfaces/cognito-verify-login-request.interface';
 import { UserpoolDetails } from '../interfaces/userpool-details.interface';
-import { AWSError } from '../../errors/aws.error';
 import { CognitoIdentityInterface } from '../interfaces/cognito-identity.interface';
+import { AWSError } from '../../../errors/aws.error';
 
 @Injectable()
 export class CognitoService {
