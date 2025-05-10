@@ -4,11 +4,11 @@ import {
 } from '@nestjs/common';
 import { AuthResponse } from 'pusher';
 import { DeleteResult } from 'typeorm';
-import { AuthGuard } from '../../common/guards/auth.guard';
+import { AuthGuard } from '../../common/guards/auth.guard'
 import { PusherService } from '../../common/services/pusher.service';
 import { AuthService } from '../auth/auth.service';
-import { AuthenticatePusherRequestDto } from './dto/authenticate-pusher.request.dto';
-import { UpdateUserNotificationRequestDto } from './dto/update-user-notification.request.dto';
+import { AuthenticatePusherRequestDto } from './dtos/authenticate-pusher.request.dto';
+import { UpdateUserNotificationRequestDto } from './dtos/update-user-notification.request.dto';
 import { UserNotification } from './entities/user-notification.entity';
 import { UserNotificationService } from './services/user-notification.service';
 

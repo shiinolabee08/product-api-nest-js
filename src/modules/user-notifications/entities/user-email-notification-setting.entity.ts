@@ -2,7 +2,7 @@ import {
   Column, Entity, JoinColumn, ManyToOne,
 } from 'typeorm';
 import { EmailNotification } from './email-notification.entity';
-import { BaseEntity } from '../../../common/entities/base-entity';
+import { BaseEntity } from '../../../common/entities/base.entity';
 import { User } from '../../users/user.entity';
 
 @Entity({ name: 'user_email_notification_settings' })

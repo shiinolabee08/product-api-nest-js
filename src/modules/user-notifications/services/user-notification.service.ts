@@ -1,8 +1,8 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { DeleteResult, FindOneOptions } from 'typeorm';
-import { CreateUserNotificationSettingDto } from '../dto/create-user-notification-setting.dto';
-import { UpdateUserNotificationRequestDto } from '../dto/update-user-notification.request.dto';
+import { CreateUserNotificationSettingDto } from '../dtos/create-user-notification-setting.dto';
+import { UpdateUserNotificationRequestDto } from '../dtos/update-user-notification.request.dto';
 import { UserNotificationSetting } from '../entities/user-notification-setting.entity';
 import { UserNotification } from '../entities/user-notification.entity';
 import { UserNotificationSettingRepository } from '../repositories/user-notification-setting.repository';

@@ -2,7 +2,7 @@ import {
   Column, Entity
 } from 'typeorm';
 
-import { BaseEntity } from '../../../common/entities/base-entity';
+import { BaseEntity } from '../../../common/entities/base.entity';
 
 @Entity({ name: 'inapp_notifications' })
 export class InAppNotification extends BaseEntity {

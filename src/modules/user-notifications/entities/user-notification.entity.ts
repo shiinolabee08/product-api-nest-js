@@ -1,7 +1,7 @@
 import {
   Column, Entity, JoinColumn, ManyToOne
 } from 'typeorm';
-import { BaseEntity } from '../../../common/entities/base-entity';
+import { BaseEntity } from '../../../common/entities/base.entity';
 import { User } from '../../users/user.entity';
 import { NotificationInAppTypeEnum } from '../../../common/enums/notification-in-app-type.enum';
 import { NotificationStateEnum } from '../../../common/enums/notification-state.enum';

@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { EventEmitter2 } from '@nestjs/event-emitter';
 import { NotificationTypeEnum } from '../../../common/enums/notification-type.enum';
-import { SendFmTemplateTransactionRequestDto } from '../../fm-templates/dto/request/send-fm-template-transaction.request.dto';
+// import { SendFmTemplateTransactionRequestDto } from '../../fm-templates/dto/request/send-fm-template-transaction.request.dto';
 import { UserNotification } from '../entities/user-notification.entity';
 
 @Injectable()
@@ -12,7 +12,7 @@ export class EventNotificationService {
 
   async sendEmailNotificationEvent(
     eventName: string,
-    payload: SendFmTemplateTransactionRequestDto,
+    payload: any,
   ) {
     this.eventEmitter.emit(`${NotificationTypeEnum.EMAIL}.${eventName}`, payload);
   }

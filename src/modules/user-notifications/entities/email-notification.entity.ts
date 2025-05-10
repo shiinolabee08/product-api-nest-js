@@ -1,8 +1,7 @@
 import {
-  Column, Entity, JoinColumn, OneToOne,
+  Column, Entity,
 } from 'typeorm';
-import { BaseEntity } from 'src/common/entities/base-entity';
-import { FmTemplate } from '../../fm-templates/entities/fm-template.entity';
+import { BaseEntity } from '../../../common/entities/base.entity';
 
 @Entity({ name: 'email_notifications' })
 export class EmailNotification extends BaseEntity {
@@ -12,8 +11,4 @@ export class EmailNotification extends BaseEntity {
     unique: true
   })
   name: string;
-
-  @OneToOne('FmTemplate')
-  @JoinColumn({ name: 'fmTemplateId' })
-  fmTemplate: FmTemplate;
 }

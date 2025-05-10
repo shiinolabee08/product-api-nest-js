@@ -1,7 +1,8 @@
-import { Column, Entity } from 'typeorm';
+import { Column, Entity, ManyToMany } from 'typeorm';
 import { ColumnNumericTransformer } from '../../common/classes/column-numeric-transformer';
 import { BaseEntity } from '../../common/entities/base.entity';
 import { ProductStatusEnum } from '../../common/enums/product-status.enum';
+import { ProductCategory } from '../product-categories/entities/product-category.entity';
 
 @Entity({ name: 'products' })
 export class Product extends BaseEntity {
@@ -38,6 +39,6 @@ export class Product extends BaseEntity {
   })
   status: number | ProductStatusEnum;
 
-
-
+  @ManyToMany(() => ProductCategory, { eager: true })
+  productCategory: ProductCategory;
 }

@@ -10,7 +10,8 @@ import { UserEmailNotificationSettingRepository } from '../repositories/user-ema
 import { UserNotificationSettingRepository } from '../repositories/user-notification-setting.repository';
 import { EventNotificationService } from './event-notification.service';
 import { NotificationService } from './notification.base.service';
-import { SendFmTemplateTransactionRequestDto } from '../../fm-templates/dto/request/send-fm-template-transaction.request.dto';
+// import { SendFmTemplateTransactionRequestDto } from '../../fm-templates/dto/request/send-fm-template-transaction.request.dto';
+import { AnyAaaaRecord } from 'node:dns';
 
 @Injectable()
 export class EmailNotificationService extends NotificationService {
@@ -83,11 +84,11 @@ export class EmailNotificationService extends NotificationService {
 
         if (!userEmailNotificationSetting || userEmailNotificationSetting.enable) {
           const sendTransactionEmailRequestDto = {
-            id: emailNotification.fmTemplate.templateId,
+            id: emailNotification.id,
             tokens: emailEvent.metaData,
             recipient: emailEvent.recipient,
           };
-          this.eventNotificationService.sendEmailNotificationEvent(emailEvent.name, sendTransactionEmailRequestDto as unknown as SendFmTemplateTransactionRequestDto);
+          this.eventNotificationService.sendEmailNotificationEvent(emailEvent.name, sendTransactionEmailRequestDto as any);
         }
       }
     } catch (error) {

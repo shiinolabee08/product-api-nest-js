@@ -1,6 +1,7 @@
-import { Column, Entity } from 'typeorm';
+import { Column, Entity, JoinColumn, ManyToOne } from 'typeorm';
 import { BaseEntity } from '../../common/entities/base.entity';
 import { UserVerificationStatusEnum } from '../../common/enums/user-verification-status.enum';
+import { Role } from '../roles/role.entity';
 
 @Entity({ name: 'users' })
 export class User extends BaseEntity {
@@ -68,4 +69,8 @@ export class User extends BaseEntity {
     default: null,
   })
   address: string;
+
+  @ManyToOne('Role', { eager: true })
+  @JoinColumn({ name: 'roleId' })
+  role: Role;
 }

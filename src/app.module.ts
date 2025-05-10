@@ -7,6 +7,10 @@ import { UserNotificationsModule } from './modules/user-notifications/user-notif
 import { CommonModule } from './common/common.module';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { RolesModule } from './modules/roles/roles.module';
+import { AuthModule } from './modules/auth/auth.module';
+import { ProductCategoriesModule } from './modules/product-categories/product-categories.module';
+import { ProductCategoriesService } from './modules/product-categories/product-categories.service';
 
 const environment = process.env.NODE_ENV || '';
 
@@ -19,7 +23,7 @@ const environment = process.env.NODE_ENV || '';
     TypeOrmModule.forRootAsync({
       imports: [ConfigModule],
       inject: [ConfigService],
-      useFactory: async (configService: ConfigService) => ({
+      useFactory: async (configService: ConfigService | any) => ({
         type: 'mysql',
         host: configService.get('DB_HOST'),
         port: configService.get('DB_PORT'),
@@ -27,16 +31,19 @@ const environment = process.env.NODE_ENV || '';
         password: configService.get('DB_PASSWORD'),
         database: configService.get('DB_NAME'),
         entities: [`${__dirname}/**/*.entity{.ts,.js}`],
-        synchronize: true,
-        logging: false,
+        synchronize: false,
+        logging: true,
       }),
     }),
+    AuthModule,
+    RolesModule,
     ProductsModule,
     UsersModule,
     UserNotificationsModule,
-    CommonModule
+    CommonModule,
+    ProductCategoriesModule
   ],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [AppService, ProductCategoriesService],
 })
 export class AppModule {}
