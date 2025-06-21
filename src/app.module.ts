@@ -10,7 +10,6 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { RolesModule } from './modules/roles/roles.module';
 import { AuthModule } from './modules/auth/auth.module';
 import { ProductCategoriesModule } from './modules/product-categories/product-categories.module';
-import { ProductCategoriesService } from './modules/product-categories/product-categories.service';
 
 const environment = process.env.NODE_ENV || '';
 
@@ -44,6 +43,6 @@ const environment = process.env.NODE_ENV || '';
     ProductCategoriesModule
   ],
   controllers: [AppController],
-  providers: [AppService, ProductCategoriesService],
+  providers: [AppService],
 })
 export class AppModule {}

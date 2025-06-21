@@ -1,4 +1,4 @@
-import { Column, Entity, ManyToMany } from 'typeorm';
+import { Column, Entity, JoinTable, ManyToMany } from 'typeorm';
 import { ColumnNumericTransformer } from '../../common/classes/column-numeric-transformer';
 import { BaseEntity } from '../../common/entities/base.entity';
 import { ProductStatusEnum } from '../../common/enums/product-status.enum';
@@ -25,6 +25,13 @@ export class Product extends BaseEntity {
   description: string;
 
   @Column({
+    type: 'varchar',
+    length: 255,
+    unique: true,
+  })
+  imageUrl: string;
+
+  @Column({
     type: 'decimal',
     precision: 10,
     scale: 2,
@@ -39,6 +46,9 @@ export class Product extends BaseEntity {
   })
   status: number | ProductStatusEnum;
 
-  @ManyToMany(() => ProductCategory, { eager: true })
-  productCategory: ProductCategory;
+  @ManyToMany('ProductCategory')
+  @JoinTable({
+    name: 'product_product_categories',
+  })
+  productCategories: ProductCategory[];
 }

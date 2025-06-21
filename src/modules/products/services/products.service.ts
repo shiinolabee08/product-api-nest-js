@@ -20,13 +20,14 @@ export class ProductsService {
   }
 
   async createProduct(createProductRequestDto: CreateProductRequestDto): Promise<Product> {
-    const { name, sku, description, price, status } = createProductRequestDto;
+    const { name, sku, imageUrl, description, price, status } = createProductRequestDto;
     try {
       return await this.productRepository.manager.transaction(async (entityManager) => {
         const productData = {
           name,
           sku,
           description,
+          imageUrl,
           price,
           status,
         };

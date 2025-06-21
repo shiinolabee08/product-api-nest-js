@@ -1,9 +1,6 @@
 import { IsNotEmpty, IsNumber, IsOptional, IsString, MaxLength } from "class-validator";
 
-export class CreateProductRequestDto {
-  @IsOptional()
-  id: number;
-
+export class UpdateProductRequestDto {
   @IsNotEmpty()
   @IsString()
   @MaxLength(255)
